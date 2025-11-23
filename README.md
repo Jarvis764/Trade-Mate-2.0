@@ -1,44 +1,71 @@
-TradeMate – Full-Stack Trading & Portfolio Management Platform
+🚀 TradeMate – Full-Stack Trading & Portfolio Management Platform
 
-TradeMate is a full-stack MERN project inspired by trading platforms like Zerodha.
-It includes:
+TradeMate is a full-stack MERN application inspired by platforms like Zerodha, built to provide real-time stock tracking, user portfolio management, and a modern trading dashboard experience.
 
-🌐 A public Landing Page (React)
+📌 Overview
 
-📊 A private Dashboard for logged-in users (React)
+TradeMate includes:
 
-🛠️ A complete Backend API with authentication (Node.js + Express + MongoDB)
+🌐 Public Landing Page (React)
 
-📈 Live Stock Prices using AlphaVantage API
+📊 Private User Dashboard (React)
 
-🚀 Features
+🛠️ Backend API with JWT Authentication (Node.js, Express, MongoDB)
+
+📈 Live Stock Prices using the AlphaVantage API
+
+✨ Features
 🔹 Landing Page
 
-Hero section, pricing, products, support, footer
+Modern UI with:
 
-Signup & Login pages
+Hero section
+
+Pricing
+
+Products
+
+Customer support
+
+Footer
+
+Authentication pages (Signup & Login)
 
 Live stock prices (BSE) using AlphaVantage API
 
-Responsive UI (similar to Zerodha)
+Responsive design inspired by Zerodha
 
 🔹 Dashboard
 
-User-specific dashboard
+User-specific dashboard (JWT protected)
 
-Holdings, Positions, Orders
+Manage:
 
-Watchlist & charts
+Holdings
 
-Modern UI components
+Positions
+
+Orders
+
+Watchlist with live updates
+
+Interactive charts (Chart.js / custom components)
+
+Clean and modern UI
 
 🔹 Backend API
 
-User Authentication (Signup + Login)
+Node.js + Express architecture
 
-JWT Token Authorization
+User Authentication:
 
-Models:
+Signup
+
+Login
+
+JWT Authorization
+
+MongoDB Models:
 
 Users
 
@@ -48,13 +75,17 @@ Positions
 
 Orders
 
-REST API + MongoDB integration
+REST API for CRUD operations
+
+AlphaVantage integration for live stock prices
 
 🔹 Live Stock Prices
 
-Uses AlphaVantage GLOBAL_QUOTE API
+Live data fetched using:
 
-Fetches live market price for symbols:
+AlphaVantage GLOBAL_QUOTE API
+
+Symbols supported:
 
 RELIANCE.BSE
 
@@ -64,14 +95,14 @@ INFY.BSE
 
 📁 Project Structure
 TradeMate/
-│── backend/          # Node.js + Express + MongoDB API
-│── dashboard/        # User dashboard (React)
-│── frontend/         # Landing page (React)
+│── backend/          # Node.js + Express + MongoDB (API)
+│── dashboard/        # User Dashboard (React)
+│── frontend/         # Public Landing Page (React)
 │── .gitignore
 │── README.md
 
 🛠️ Tech Stack
-Frontend
+🎨 Frontend
 
 React.js
 
@@ -81,15 +112,17 @@ Axios
 
 Bootstrap / CSS
 
-Dashboard
+📊 Dashboard
 
-React
+React (SPA)
 
 Context API
 
-Chart.js / Custom Components
+Chart.js
 
-Backend
+Custom components
+
+⚙️ Backend
 
 Node.js
 
@@ -99,11 +132,11 @@ MongoDB & Mongoose
 
 JWT Authentication
 
-Bcrypt (password hashing)
+Bcrypt password hashing
 
-APIs
+🔗 APIs
 
-AlphaVantage (Live Stock Prices)
+AlphaVantage (Stock Market Prices)
 
 ⚙️ Installation & Setup
 1️⃣ Clone Repository
@@ -115,7 +148,7 @@ cd backend
 npm install
 
 
-Create .env file:
+Create .env:
 
 MONGO_URL=your_mongo_connection
 JWT_SECRET=your_secret_key
@@ -133,8 +166,7 @@ npm install
 npm start
 
 
-Runs on:
-
+Runs at:
 http://localhost:3000
 
 4️⃣ Dashboard Setup
@@ -143,28 +175,28 @@ npm install
 npm start
 
 
-Runs on:
-
+Runs at:
 http://localhost:3001
 
 🔐 Authentication Flow
 
-User signs up → user saved in DB
+User signs up → data stored in MongoDB
 
-User logs in → backend returns a JWT token
+User logs in → backend returns JWT token
 
-Token stored in localStorage
+Token saved in localStorage
 
-Login redirects user to Dashboard app
+Dashboard loads only if token is valid
 
-Protected routes check token validity
+Protected routes verify token on each request
 
 📈 Live Stock Price Flow
 
-Frontend asks backend → /stock/:symbol
+Frontend calls backend:
+GET /stock/:symbol
 
-Backend calls AlphaVantage API
+Backend hits AlphaVantage GLOBAL_QUOTE
 
-Backend returns live price
+Live market price returned to UI
 
-UI auto-updates
+Dashboard & Landing Page auto-refresh prices
